@@ -12,19 +12,19 @@ function App() {
       id: "e2",
       title: "안쥬쨩피규어",
       amount: 250000,
-      date: new Date(2022, 2, 11),
+      date: new Date(2021, 8, 2),
     },
     {
       id: "e3",
       title: "데레 10연",
       amount: 50000,
-      date: new Date(2022, 2, 11),
+      date: new Date(2021, 10, 5),
     },
     {
       id: "e4",
       title: "커미션",
       amount: 50000,
-      date: new Date(2022, 2, 11),
+      date: new Date(2022, 0, 1),
     },
   ];
   return (
@@ -48,7 +48,7 @@ function App() {
       <ExpenseItem
         title={expenses[3].title}
         amount={expenses[3].amount}
-        date={expenses[3].date}
+        date={expenses[0].date}
       ></ExpenseItem>
     </div>
   );
