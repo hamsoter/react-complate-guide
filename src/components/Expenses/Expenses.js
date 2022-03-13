@@ -1,5 +1,6 @@
 import React from "react";
 import ExpenseItem from "./ExpenseItem";
+import ExpensesFilter from "./ExpensesFilter";
 import Card from "../UI/Card";
 import "./Expenses.css";
 
@@ -17,7 +18,16 @@ const Expenses = (props) => {
     );
   });
 
-  return <Card className="expenses">{expenses}</Card>;
+  const selectYearHandler = (year) => {
+    console.log(year);
+  };
+
+  return (
+    <div>
+      <ExpensesFilter onSelectYear={selectYearHandler} />
+      <Card className="expenses">{expenses}</Card>
+    </div>
+  );
 };
 
 export default Expenses;
