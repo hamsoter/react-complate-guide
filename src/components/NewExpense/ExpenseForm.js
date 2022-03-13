@@ -28,6 +28,10 @@ const ExepnseForm = () => {
     };
 
     console.log(expenseData);
+
+    setEnteredTitle("");
+    setEnteredAmount("");
+    setEnteredDate("");
   };
 
   return (
@@ -35,7 +39,11 @@ const ExepnseForm = () => {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>지출명</label>
-          <input type="text" onChange={titleChangeHandler} />
+          <input
+            type="text"
+            value={enteredTitle}
+            onChange={titleChangeHandler}
+          />
         </div>
         <div className="new-expense__control">
           <label>가격</label>
@@ -43,6 +51,7 @@ const ExepnseForm = () => {
             type="number"
             min="0"
             step="1"
+            value={enteredAmount}
             onChange={amountChangeHandler}
           />
         </div>
@@ -52,6 +61,7 @@ const ExepnseForm = () => {
             type="date"
             min="2019-01-01"
             max="2022-12-31"
+            value={enteredDate}
             onChange={dateChangeHandler}
           />
         </div>
