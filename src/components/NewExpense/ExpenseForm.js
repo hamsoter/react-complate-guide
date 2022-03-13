@@ -14,25 +14,22 @@ const ExepnseForm = () => {
   });
 
   const titleChangeHandler = (e) => {
-    setUserInput({
-      ...userInput,
-      enteredTitle: e.target.value,
+    setUserInput((prevState) => {
+      return { ...prevState, enteredTitle: e.target.value };
     });
     console.log(userInput.enteredTitle);
   };
 
   const AmountChangeHandler = (e) => {
-    setUserInput({
-      ...userInput,
-      enteredAmount: e.target.value,
+    setUserInput((prevState) => {
+      return { ...prevState, enteredAmount: e.target.value };
     });
     console.log(userInput.enteredAmount);
   };
 
   const DateChangeHandler = (e) => {
-    setUserInput({
-      ...userInput,
-      enteredDate: e.target.value,
+    setUserInput((prevState) => {
+      return { ...prevState, enteredDate: e.target.value };
     });
     console.log(userInput.enteredDate);
   };
