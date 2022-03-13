@@ -24,8 +24,10 @@ const Expenses = (props) => {
 
   return (
     <div>
-      <ExpensesFilter onSelectYear={selectYearHandler} />
-      <Card className="expenses">{expenses}</Card>
+      <Card className="expenses">
+        <ExpensesFilter onSelectYear={selectYearHandler} />
+        {expenses}
+      </Card>
     </div>
   );
 };
