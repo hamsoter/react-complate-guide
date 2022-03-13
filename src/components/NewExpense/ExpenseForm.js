@@ -2,40 +2,36 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExepnseForm = () => {
-  // const [enterTitle, setEnterTitle] = useState("");
-  // const [enterAmount, setEnterAmount] = useState("");
-  // const [enterDate, setEnterDate] = useState("");
-
-  // 객체형식 선언
-  const [userInput, setUserInput] = useState({
-    enteredTitle: "",
-    enteredAmount: "",
-    enteredDate: "",
-  });
+  const [enteredTitle, setEnteredTitle] = useState("");
+  const [enteredAmount, setEnteredAmount] = useState("");
+  const [enteredDate, setEnteredDate] = useState("");
 
   const titleChangeHandler = (e) => {
-    setUserInput((prevState) => {
-      return { ...prevState, enteredTitle: e.target.value };
-    });
-    console.log(userInput.enteredTitle);
+    setEnteredTitle(e.target.value);
   };
 
-  const AmountChangeHandler = (e) => {
-    setUserInput((prevState) => {
-      return { ...prevState, enteredAmount: e.target.value };
-    });
-    console.log(userInput.enteredAmount);
+  const amountChangeHandler = (e) => {
+    setEnteredAmount(e.target.value);
   };
 
-  const DateChangeHandler = (e) => {
-    setUserInput((prevState) => {
-      return { ...prevState, enteredDate: e.target.value };
-    });
-    console.log(userInput.enteredDate);
+  const dateChangeHandler = (e) => {
+    setEnteredDate(e.target.value);
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    const expenseData = {
+      title: enteredTitle,
+      amount: enteredAmount,
+      date: new Date(enteredDate),
+    };
+
+    console.log(expenseData);
   };
 
   return (
-    <form>
+    <form onSubmit={submitHandler} action="">
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>지출명</label>
@@ -47,7 +43,7 @@ const ExepnseForm = () => {
             type="number"
             min="0"
             step="1"
-            onChange={AmountChangeHandler}
+            onChange={amountChangeHandler}
           />
         </div>
         <div className="new-expense__control">
@@ -56,12 +52,12 @@ const ExepnseForm = () => {
             type="date"
             min="2019-01-01"
             max="2022-12-31"
-            onChange={DateChangeHandler}
+            onChange={dateChangeHandler}
           />
         </div>
       </div>
       <div className="new-expense_actions">
-        <button type="submit">추가</button>
+        <button type="submit">등록</button>
       </div>
     </form>
   );
