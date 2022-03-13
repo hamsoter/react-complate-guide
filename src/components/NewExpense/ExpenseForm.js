@@ -2,23 +2,39 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExepnseForm = () => {
-  const [enterTitle, setEnterTitle] = useState("");
-  const [enterAmount, setEnterAmount] = useState("");
-  const [enterDate, setEnterDate] = useState("");
+  // const [enterTitle, setEnterTitle] = useState("");
+  // const [enterAmount, setEnterAmount] = useState("");
+  // const [enterDate, setEnterDate] = useState("");
+
+  // 객체형식 선언
+  const [userInput, setUserInput] = useState({
+    enteredTitle: "",
+    enteredAmount: "",
+    enteredDate: "",
+  });
 
   const titleChangeHandler = (e) => {
-    setEnterTitle(e.target.value);
-    console.log(enterTitle);
+    setUserInput({
+      ...userInput,
+      enteredTitle: e.target.value,
+    });
+    console.log(userInput.enteredTitle);
   };
 
   const AmountChangeHandler = (e) => {
-    setEnterAmount(e.target.value);
-    console.log(enterAmount);
+    setUserInput({
+      ...userInput,
+      enteredAmount: e.target.value,
+    });
+    console.log(userInput.enteredAmount);
   };
 
   const DateChangeHandler = (e) => {
-    setEnterDate(e.target.value);
-    console.log(enterDate);
+    setUserInput({
+      ...userInput,
+      enteredDate: e.target.value,
+    });
+    console.log(userInput.enteredDate);
   };
 
   return (
