@@ -10,8 +10,6 @@ const ExpenseItem = (props) => {
     console.log(setTitle);
   };
 
-  console.log("hi...");
-
   return (
     <Card className="expense-item">
       <ExpenseDate date={props.date} />
