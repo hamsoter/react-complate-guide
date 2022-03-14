@@ -37,10 +37,7 @@ const App = () => {
     },
   ];
 
-  const FILTERED_EXPENSES = [{}];
-
   const [expenses, setExepnses] = useState(DUMMY_EXPENSES);
-  const [filtereds, setFiltereds] = useState(FILTERED_EXPENSES);
 
   const addExpenseHandler = (newExpense) => {
     setExepnses((prevExpenses) => {
@@ -48,14 +45,10 @@ const App = () => {
     });
   };
 
-  const filteredExpenseHandler = (filteredExpenses) => {
-    setFiltereds(filteredExpenses);
-  };
-
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses items={expenses} onFilter={filteredExpenseHandler} />
+      <Expenses items={expenses} />
     </div>
   );
 
