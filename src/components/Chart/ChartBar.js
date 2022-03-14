@@ -5,7 +5,7 @@ const ChartBar = (props) => {
   let barFillHeight = "0%";
 
   // 바가 어디까지 채워지는지 정수 퍼센트로 계산
-  if (props.max > 0) {
+  if (props.maxValue > 0) {
     barFillHeight = Math.round((props.value / props.maxValue) * 100) + "%";
   }
 
