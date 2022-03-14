@@ -17,18 +17,17 @@ const NewExpense = (props) => {
     formFlag === true ? setFormFlag(false) : setFormFlag(true);
   };
 
-  let header = <button onClick={formFlagHandler}>새 지출 추가</button>;
-
-  if (formFlag) {
-    header = (
-      <ExpenseForm
-        closeForm={formFlagHandler}
-        onSaveExpenseData={saveExpenseDataHandler}
-      />
-    );
-  }
-
-  return <div className="new-expense">{header}</div>;
+  return (
+    <div className="new-expense">
+      {!formFlag && <button onClick={formFlagHandler}>새 지출 추가</button>}
+      {formFlag && (
+        <ExpenseForm
+          onCancle={formFlagHandler}
+          onSaveExpenseData={saveExpenseDataHandler}
+        />
+      )}
+    </div>
+  );
 };
 
 export default NewExpense;

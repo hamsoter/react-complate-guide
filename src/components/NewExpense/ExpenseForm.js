@@ -33,11 +33,7 @@ const ExepnseForm = (props) => {
     setEnteredAmount("");
     setEnteredDate("");
 
-    props.closeForm();
-  };
-
-  const cancleHandler = () => {
-    props.closeForm();
+    props.onCancle();
   };
 
   return (
@@ -74,7 +70,7 @@ const ExepnseForm = (props) => {
       </div>
       <div className="new-expense_actions">
         <button type="submit">등록</button>
-        <button type="button" onClick={cancleHandler}>
+        <button type="button" onClick={props.onCancle}>
           취소
         </button>
       </div>
