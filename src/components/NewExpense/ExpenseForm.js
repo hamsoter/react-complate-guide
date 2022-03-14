@@ -23,7 +23,7 @@ const ExepnseForm = (props) => {
 
     const expenseData = {
       title: enteredTitle,
-      amount: Number(enteredAmount).toLocaleString(),
+      amount: Number(enteredAmount),
       date: new Date(enteredDate),
     };
 
