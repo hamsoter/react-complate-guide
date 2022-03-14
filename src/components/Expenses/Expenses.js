@@ -13,8 +13,22 @@ const Expenses = (props) => {
 
   const yearChangeHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
-    console.log(selectedYear);
   };
+
+  let expensesContent = <p>지출내역이 없어요</p>;
+
+  if (filteredExpenses.length > 0) {
+    expensesContent = filteredExpenses.map((item) => {
+      return (
+        <ExpenseItem
+          key={item.id}
+          title={item.title}
+          amount={item.amount}
+          date={item.date}
+        />
+      );
+    });
+  }
 
   return (
     <div>
@@ -23,16 +37,7 @@ const Expenses = (props) => {
           selected={filteredYear}
           onSelectYear={yearChangeHandler}
         />
-        {filteredExpenses.map((item) => {
-          return (
-            <ExpenseItem
-              key={item.id}
-              title={item.title}
-              amount={item.amount}
-              date={item.date}
-            />
-          );
-        })}
+        {expensesContent}
       </Card>
     </div>
   );
